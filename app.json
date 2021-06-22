@@ -1,0 +1,12 @@
+{
+  "name": "treinamento-reactnative-redux-indra",
+  "displayName": "treinamento-reactnative-redux-indra",
+  "expo": {
+    "name": "treinamento-reactnative-redux-indra",
+    "slug": "treinamento-reactnative-redux-indra",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
