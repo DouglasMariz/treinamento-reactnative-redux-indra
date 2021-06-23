@@ -15,7 +15,20 @@ const Home = (props) => {
     return (
         <View style={styles.container}>
             <DefaultButton
-                size={"lg"}
+                themeText={'Adicionar ao Carrinho'}
+                themeSize={"xs"}
+                themeColor={"primary"}
+                onPress={() => {
+                    console.log('add');
+                }}
+            />
+            <DefaultButton
+                themeText={'Finalizar Compra'}
+                themeSize={"xs"}
+                themeColor={"success"}
+                onPress={() => {
+                    console.log('finalizar');
+                }}
             />
         </View>
     )

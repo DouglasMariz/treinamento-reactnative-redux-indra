@@ -2,16 +2,20 @@ import React from 'react';
 import {
     StyleSheet,
     TouchableOpacity,
+    TouchableOpacityProps,
     Text
 } from 'react-native';
+import Colors from '../../../Colors';
 
 import {DefaultButtonTypes} from './types';
 
-const DefaultButton = (props: DefaultButtonTypes) => {
+const DefaultButton = (props: DefaultButtonTypes & TouchableOpacityProps) => {
 
     const {
-        size: size = 'xs',
-        color: color = '#01CF7D'
+        themeText: text,
+        themeSize: size = 'xs',
+        themeColor: color = 'success',
+        onPress
     } = props;
 
     const sizes = {
@@ -22,16 +26,18 @@ const DefaultButton = (props: DefaultButtonTypes) => {
     }
 
     return (
-        <TouchableOpacity style={{
-            width: sizes[size],
-            height: 40,
-            backgroundColor: color,
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 10,
-        }}>
+        <TouchableOpacity
+            onPress={onPress && onPress}
+            style={{
+                width: sizes[size],
+                height: 40,
+                backgroundColor: Colors[color],
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 10,
+            }}>
             <Text style={styles.text}>
-                Button Text
+                {text}
             </Text>
         </TouchableOpacity>
     )

@@ -1,4 +1,7 @@
+import {ColorsTypes} from '../../../../Colors/types';
+
 export type DefaultButtonTypes = {
-    size?: 'xs' | 'sm' | 'md' | 'lg';
-    color?: string;
+    themeText: string;
+    themeSize?: 'xs' | 'sm' | 'md' | 'lg';
+    themeColor?: ColorsTypes;
 };
