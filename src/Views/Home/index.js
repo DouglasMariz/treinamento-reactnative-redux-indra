@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 
 import styles from './styles';
+import tailwind from 'tailwind-rn';
 
 import {
     DefaultButton
@@ -13,7 +14,7 @@ import {
 const Home = (props) => {
 
     return (
-        <View style={styles.container}>
+        <View style={tailwind('h-full flex flex-row items-center justify-around bg-gray-100')}>
             <DefaultButton
                 themeText={'Adicionar ao Carrinho'}
                 themeSize={"xs"}
