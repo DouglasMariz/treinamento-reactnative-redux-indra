@@ -2,4 +2,7 @@ export type ColorsTypes =
     'primary' |
     'success' |
     'danger' |
-    'warning';
+    'warning' |
+    'input' |
+    'inputText' |
+    'transparent';
