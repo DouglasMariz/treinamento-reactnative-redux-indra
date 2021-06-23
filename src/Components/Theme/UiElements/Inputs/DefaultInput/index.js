@@ -12,7 +12,8 @@ const DefaultInput = (props: DefaultInputTypes & TextInputProps) => {
         themeBorderColor: borderColor = 'transparent',
         themeTextColor: textColor = 'inputText',
         onChangeText,
-        placeholder
+        placeholder,
+        defaultValue
     } = props;
 
     const sizes = {
@@ -27,6 +28,7 @@ const DefaultInput = (props: DefaultInputTypes & TextInputProps) => {
             <TextInput
                 onChangeText={onChangeText && onChangeText}
                 placeholder={placeholder && placeholder}
+                defaultValue={defaultValue && defaultValue}
                 style={{
                     backgroundColor: Colors[color],
                     borderWidth: 2,
