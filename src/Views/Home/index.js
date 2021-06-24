@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     View,
     Text
@@ -23,6 +23,13 @@ const Home = (props) => {
 
     const [exibir, setExibir] = useState(false);
 
+    /**
+     * Esse useEffect oculta os dados toda vez que o state form for atualizado
+     */
+    useEffect(() => {
+        setExibir(false);
+    }, [form]);
+
     return (
         <View style={tailwind('p-4 h-full flex flex-col items-center justify-start')}>
             <View style={tailwind('p-4 flex flex-col items-center justify-center')}>
@@ -30,6 +37,10 @@ const Home = (props) => {
                     <DefaultInput
                         themeSize={'lg'}
                         onChangeText={(value) => {
+                            setForm(form => ({
+                                ...form,
+                                nome: value
+                            }));
                         }}
                         defaultValue={form.nome}
                         placeholder={'Nome'}
@@ -39,6 +50,10 @@ const Home = (props) => {
                     <DefaultInput
                         themeSize={'lg'}
                         onChangeText={(value) => {
+                            setForm(form => ({
+                                ...form,
+                                cpf: value
+                            }));
                         }}
                         defaultValue={form.cpf}
                         placeholder={'CPF'}
@@ -48,6 +63,10 @@ const Home = (props) => {
                     <View style={tailwind('w-2/5')}>
                         <DefaultInput
                             onChangeText={(value) => {
+                                setForm(form => ({
+                                    ...form,
+                                    logradouro: value
+                                }));
                             }}
                             defaultValue={form.logradouro}
                             placeholder={'Logradouro'}
@@ -56,6 +75,10 @@ const Home = (props) => {
                     <View style={tailwind('w-1/4')}>
                         <DefaultInput
                             onChangeText={(value) => {
+                                setForm(form => ({
+                                    ...form,
+                                    numero: value
+                                }));
                             }}
                             defaultValue={form.numero}
                             placeholder={'Numero'}
