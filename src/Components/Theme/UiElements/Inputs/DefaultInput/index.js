@@ -7,13 +7,10 @@ import Colors from '../../../Colors';
 const DefaultInput = (props: DefaultInputTypes & TextInputProps) => {
 
     const {
-        themeSize: size = 'xs',
+        themeSize: size = 'full',
         themeColor: color = 'input',
         themeBorderColor: borderColor = 'transparent',
         themeTextColor: textColor = 'inputText',
-        onChangeText,
-        placeholder,
-        defaultValue
     } = props;
 
     const sizes = {
@@ -21,25 +18,20 @@ const DefaultInput = (props: DefaultInputTypes & TextInputProps) => {
         sm: 183,
         md: 256,
         lg: 328,
+        full: '100%'
     }
 
     return (
         <View>
             <TextInput
-                onChangeText={onChangeText && onChangeText}
-                placeholder={placeholder && placeholder}
-                defaultValue={defaultValue && defaultValue}
                 style={{
+                    ...tailwind('h-10 border-2 border-solid rounded-xl pl-3 pr-3'),
                     backgroundColor: Colors[color],
-                    borderWidth: 2,
-                    borderStyle: 'solid',
                     borderColor: Colors[borderColor],
                     width: sizes[size],
-                    height: 40,
-                    borderRadius: 10,
                     color: Colors[textColor],
-                    paddingHorizontal: 10
                 }}
+                {...props}
             />
         </View>
     )

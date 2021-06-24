@@ -32,10 +32,10 @@ const Home = (props) => {
 
     return (
         <View style={tailwind('p-4 h-full flex flex-col items-center justify-start')}>
-            <View style={tailwind('p-4 flex flex-col items-center justify-center')}>
+            <View style={tailwind('p-4 flex flex-col justify-center')}>
+
                 <View style={tailwind('p-1')}>
                     <DefaultInput
-                        themeSize={'lg'}
                         onChangeText={(value) => {
                             setForm(form => ({
                                 ...form,
@@ -48,7 +48,6 @@ const Home = (props) => {
                 </View>
                 <View style={tailwind('p-1')}>
                     <DefaultInput
-                        themeSize={'lg'}
                         onChangeText={(value) => {
                             setForm(form => ({
                                 ...form,
@@ -59,8 +58,8 @@ const Home = (props) => {
                         placeholder={'CPF'}
                     />
                 </View>
-                <View style={tailwind('p-1 flex flex-row items-center justify-around')}>
-                    <View style={tailwind('w-2/5')}>
+                <View style={tailwind('p-1 flex flex-row justify-around')}>
+                    <View style={tailwind('w-2/3')}>
                         <DefaultInput
                             onChangeText={(value) => {
                                 setForm(form => ({
@@ -72,7 +71,7 @@ const Home = (props) => {
                             placeholder={'Logradouro'}
                         />
                     </View>
-                    <View style={tailwind('w-1/4')}>
+                    <View style={tailwind('w-1/3')}>
                         <DefaultInput
                             onChangeText={(value) => {
                                 setForm(form => ({

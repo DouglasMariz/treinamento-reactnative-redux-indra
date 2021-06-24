@@ -6,8 +6,8 @@ import {
     Text
 } from 'react-native';
 import Colors from '../../../Colors';
-
 import styles from './styles';
+import tailwind from 'tailwind-rn';
 
 import {DefaultButtonTypes} from './types';
 
@@ -17,7 +17,6 @@ const DefaultButton = (props: DefaultButtonTypes & TouchableOpacityProps) => {
         themeText: text,
         themeSize: size = 'xs',
         themeColor: color = 'success',
-        onPress
     } = props;
 
     const sizes = {
@@ -29,15 +28,14 @@ const DefaultButton = (props: DefaultButtonTypes & TouchableOpacityProps) => {
 
     return (
         <TouchableOpacity
-            onPress={onPress && onPress}
             style={{
+                ...tailwind('flex items-center justify-center rounded-xl'),
                 width: sizes[size],
                 height: 40,
-                backgroundColor: Colors[color],
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: 10,
-            }}>
+                backgroundColor: Colors[color]
+            }}
+            {...props}
+        >
             <Text style={styles.text}>
                 {text}
             </Text>
