@@ -4,7 +4,6 @@ import {
     Text
 } from 'react-native';
 
-import styles from './styles';
 import tailwind from 'tailwind-rn';
 
 import {
@@ -31,7 +30,29 @@ const Home = (props) => {
     }, [form]);
 
     return (
-        <View style={tailwind('p-4 h-full flex flex-col items-center justify-start')}>
+        <View style={tailwind('p-4 h-full flex flex-col items-center justify-center')}>
+
+            <View style={tailwind('p-4 w-full')}>
+                <View style={tailwind('p-4 flex flex-col items-start justify-center rounded-xl bg-gray-100')}>
+                    <View style={tailwind('flex flex-row items-center justify-center')}>
+                        <Text style={tailwind('p-1 font-bold')}>Nome: </Text>
+                        <Text style={tailwind('p-1')}>{form.nome}</Text>
+                    </View>
+                    <View style={tailwind('flex flex-row items-center justify-center')}>
+                        <Text style={tailwind('p-1 font-bold')}>Cpf: </Text>
+                        <Text style={tailwind('p-1')}>{form.cpf}</Text>
+                    </View>
+                    <View style={tailwind('flex flex-row items-center justify-center')}>
+                        <Text style={tailwind('p-1 font-bold')}>Logradouro: </Text>
+                        <Text style={tailwind('p-1')}>{form.logradouro}</Text>
+                    </View>
+                    <View style={tailwind('flex flex-row items-center justify-center')}>
+                        <Text style={tailwind('p-1 font-bold')}>Número: </Text>
+                        <Text style={tailwind('p-1')}>{form.numero}</Text>
+                    </View>
+                </View>
+            </View>
+
             <View style={tailwind('p-4 flex flex-col justify-center')}>
 
                 <View style={tailwind('p-1')}>
@@ -56,6 +77,7 @@ const Home = (props) => {
                         }}
                         defaultValue={form.cpf}
                         placeholder={'CPF'}
+                        keyboardType={"numeric"}
                     />
                 </View>
                 <View style={tailwind('p-1 flex flex-row justify-around')}>
@@ -81,31 +103,22 @@ const Home = (props) => {
                             }}
                             defaultValue={form.numero}
                             placeholder={'Numero'}
+                            keyboardType={"numeric"}
                         />
                     </View>
                 </View>
             </View>
 
-            <View style={tailwind('p-4 w-full flex flex-row items-center justify-around')}>
-                <DefaultButton
-                    themeText={'Salvar'}
-                    themeSize={"xs"}
-                    themeColor={"primary"}
-                    onPress={() => {
-                        setExibir(true);
-                    }}
-                />
-            </View>
-
-            {
-                exibir &&
-                <View style={tailwind('p-4 h-full w-full flex flex-col items-center justify-center')}>
-                    <Text style={tailwind('p-1')}>{form.nome}</Text>
-                    <Text style={tailwind('p-1')}>{form.cpf}</Text>
-                    <Text style={tailwind('p-1')}>{form.logradouro}</Text>
-                    <Text style={tailwind('p-1')}>{form.numero}</Text>
-                </View>
-            }
+            {/*<View style={tailwind('p-4 w-full flex flex-row items-center justify-around')}>*/}
+            {/*    <DefaultButton*/}
+            {/*        themeText={'Salvar'}*/}
+            {/*        themeSize={"xs"}*/}
+            {/*        themeColor={"primary"}*/}
+            {/*        onPress={() => {*/}
+            {/*            setExibir(true);*/}
+            {/*        }}*/}
+            {/*    />*/}
+            {/*</View>*/}
 
         </View>
     )
