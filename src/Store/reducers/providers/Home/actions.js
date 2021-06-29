@@ -1,8 +1,9 @@
 export default {
-    setUser(state, action) {
+    setData(state, action) {
         return {
             ...state,
             data: [
+                ...state.data,
                 action.payload
             ]
         }

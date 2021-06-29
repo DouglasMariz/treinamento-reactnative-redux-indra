@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import tailwind from 'tailwind-rn';
 import {useNavigation} from '@react-navigation/native';
+import {useSelector, useDispatch} from 'react-redux';
 
 import {
     DefaultButton,
@@ -12,6 +13,8 @@ import {
 } from '~/Components/Theme';
 
 const Home = (props) => {
+    const store = useSelector(store => store);
+    const dispath = useDispatch();
     const navigation = useNavigation();
 
     const [form, setForm] = useState({
@@ -35,6 +38,11 @@ const Home = (props) => {
     useEffect(() => {
         setExibir(false);
     }, [form]);
+
+    useEffect(() => {
+        console.log('effect');
+        console.log(store.HomeProvider);
+    }, [store])
 
     return (
         <View style={tailwind('p-4 h-full flex flex-col items-center justify-center bg-white')}>
@@ -122,7 +130,11 @@ const Home = (props) => {
                     themeSize={"xs"}
                     themeColor={"primary"}
                     onPress={() => {
-                        navigation.navigate('Login', {texto: 'olá'});
+                        console.log(store);
+                        dispath({
+                            type: 'setData',
+                            payload: {nome: 'thyago'}
+                        });
                     }}
                 />
             </View>
