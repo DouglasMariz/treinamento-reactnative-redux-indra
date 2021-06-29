@@ -1,13 +1,17 @@
-import React, {useEffect, useState} from 'react';
-import {View} from 'react-native';
-
-//Views
-import Home from './Views/Home';
+import React from 'react';
+import Routes from './Routes';
+import {PersistGate} from 'redux-persist/integration/react';
+import {Provider} from 'react-redux';
+import {store, persistor} from './Store';
 
 const App = (props) => {
 
     return (
-        <Home/>
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+                <Routes/>
+            </PersistGate>
+        </Provider>
     );
 }
 

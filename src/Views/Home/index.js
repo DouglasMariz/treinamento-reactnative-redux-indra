@@ -3,8 +3,8 @@ import {
     View,
     Text
 } from 'react-native';
-
 import tailwind from 'tailwind-rn';
+import {useNavigation} from '@react-navigation/native';
 
 import {
     DefaultButton,
@@ -12,6 +12,7 @@ import {
 } from '~/Components/Theme';
 
 const Home = (props) => {
+    const navigation = useNavigation();
 
     const [form, setForm] = useState({
         nome: '',
@@ -22,6 +23,12 @@ const Home = (props) => {
 
     const [exibir, setExibir] = useState(false);
 
+    const teste = {
+        cidade: 'jo',
+        bairro: 'bla',
+        numero: 0
+    }
+
     /**
      * Esse useEffect oculta os dados toda vez que o state form for atualizado
      */
@@ -30,7 +37,7 @@ const Home = (props) => {
     }, [form]);
 
     return (
-        <View style={tailwind('p-4 h-full flex flex-col items-center justify-center')}>
+        <View style={tailwind('p-4 h-full flex flex-col items-center justify-center bg-white')}>
 
             <View style={tailwind('p-4 w-full')}>
                 <View style={tailwind('p-4 flex flex-col items-start justify-center rounded-xl bg-gray-100')}>
@@ -109,16 +116,16 @@ const Home = (props) => {
                 </View>
             </View>
 
-            {/*<View style={tailwind('p-4 w-full flex flex-row items-center justify-around')}>*/}
-            {/*    <DefaultButton*/}
-            {/*        themeText={'Salvar'}*/}
-            {/*        themeSize={"xs"}*/}
-            {/*        themeColor={"primary"}*/}
-            {/*        onPress={() => {*/}
-            {/*            setExibir(true);*/}
-            {/*        }}*/}
-            {/*    />*/}
-            {/*</View>*/}
+            <View style={tailwind('p-4 w-full flex flex-row items-center justify-around')}>
+                <DefaultButton
+                    themeText={'Login'}
+                    themeSize={"xs"}
+                    themeColor={"primary"}
+                    onPress={() => {
+                        navigation.navigate('Login', {texto: 'olá'});
+                    }}
+                />
+            </View>
 
         </View>
     )
