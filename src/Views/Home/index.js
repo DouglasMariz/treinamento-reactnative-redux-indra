@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useCallback, useState} from 'react';
 import {
     View,
     Text
@@ -17,15 +17,15 @@ const Home = (props) => {
     const dispath = useDispatch();
     const navigation = useNavigation();
 
-    const [form, setForm] = useState({
+    const initialStateForm = {
         nome: '',
         cpf: '',
         logradouro: '',
         numero: '',
-    });
-
+    };
+    const [form, setForm] = useState(initialStateForm);
+    const [posts, setPosts] = useState(null);
     const [exibir, setExibir] = useState(false);
-
     const teste = {
         cidade: 'jo',
         bairro: 'bla',
@@ -40,9 +40,9 @@ const Home = (props) => {
     }, [form]);
 
     useEffect(() => {
-        console.log('effect');
-        console.log(store.HomeProvider);
-    }, [store])
+        // console.log('effect');
+        // console.log(store.HomeProvider)
+    }, [store]);
 
     return (
         <View style={tailwind('p-4 h-full flex flex-col items-center justify-center bg-white')}>
@@ -124,17 +124,25 @@ const Home = (props) => {
                 </View>
             </View>
 
-            <View style={tailwind('p-4 w-full flex flex-row items-center justify-around')}>
+            <View style={tailwind('p-4 w-full h-40 flex flex-col items-center justify-around')}>
                 <DefaultButton
-                    themeText={'Login'}
+                    themeText={'Salvar dados'}
                     themeSize={"xs"}
                     themeColor={"primary"}
                     onPress={() => {
-                        console.log(store);
                         dispath({
                             type: 'setData',
-                            payload: {nome: 'thyago'}
+                            payload: {nome: form.nome}
                         });
+                        setForm(initialStateForm);
+                    }}
+                />
+                <DefaultButton
+                    themeText={'Ver Posts'}
+                    themeSize={"xs"}
+                    themeColor={"primary"}
+                    onPress={() => {
+                        navigation.navigate('Posts');
                     }}
                 />
             </View>

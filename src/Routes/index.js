@@ -7,6 +7,7 @@ const Stack = createStackNavigator();
 //Components
 import Home from '../Views/Home';
 import Login from '../Views/Login';
+import Posts from '../Views/Posts';
 
 const Routes = () => {
     return (
@@ -27,6 +28,10 @@ const Routes = () => {
                 <Stack.Screen
                     name={'Login'}
                     component={Login}
+                />
+                <Stack.Screen
+                    name={'Posts'}
+                    component={Posts}
                 />
 
             </Stack.Navigator>
